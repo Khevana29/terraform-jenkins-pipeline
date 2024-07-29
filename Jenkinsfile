@@ -8,17 +8,17 @@ pipeline {
         }
         stage('Terraform Init') {
             steps {
-                bat 'terraform init'
+                bat 'cd C:\ProgramData\Jenkins\.jenkins\workspace\azure-pipeline && terraform init'
             }
         }
         stage('Terraform Plan') {
             steps {
-                bat 'terraform plan -out=plan.out'
+                bat 'cd C:\ProgramData\Jenkins\.jenkins\workspace\azure-pipeline && terraform plan -out=plan.out'
             }
         }
         stage('Terraform Apply') {
             steps {
-                bat 'terraform apply plan.out'
+                bat 'cd C:\ProgramData\Jenkins\.jenkins\workspace\azure-pipeline && terraform apply plan.out'
             }
         }
     }
