@@ -8,17 +8,17 @@ pipeline {
         }
         stage('Terraform Init') {
             steps {
-                bat 'terraform init'
+                sh 'terraform init'
             }
         }
         stage('Terraform Plan') {
             steps {
-                bat 'terraform plan -out=plan.out'
+                sh 'terraform plan -out=plan.out'
             }
         }
         stage('Terraform Apply') {
             steps {
-                bat 'terraform apply plan.out'
+                sh 'terraform apply plan.out'
             }
         }
     }
